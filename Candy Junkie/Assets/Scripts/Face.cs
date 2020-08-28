@@ -19,7 +19,7 @@ public class Face : MonoBehaviour
 
     public void flipFace(float x)
     {
-        //Checks Which Direction Player Is Going Then Change Face
+        //Checks Which Direction Player Is Going Then Changes The Face Sprite
         if (x > 0)
         {
             sprite.sprite = RightFace;

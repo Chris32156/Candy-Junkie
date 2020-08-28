@@ -41,6 +41,5 @@ public class Player : MonoBehaviour
 
         //Update Movement
         rb.velocity = new Vector2(moveByX, moveByY);
-
     }
 }
