@@ -10,11 +10,12 @@ public class Game : MonoBehaviour
     [SerializeField] int StartingHealth = 3;
     [SerializeField] int fps = 60;
     [SerializeField] TextMeshProUGUI CandiesText;
+    [SerializeField] TextMeshProUGUI LivesText;
     [SerializeField] GameObject Candy;
 
     //Declare Vars
     int Candies;
-    int Health;
+    int Lives;
     Player player;
     Vector3 PositionOfCandy;
     float timeSpawned;
@@ -27,11 +28,12 @@ public class Game : MonoBehaviour
 
         //Get Defualts
         Candies = StartingNumberOfCandies;
-        Health = StartingHealth;
+        Lives = StartingHealth;
         timeSpawned = 0;
 
         //Intilize UI
         CandiesText.SetText("X " + Candies.ToString());
+        LivesText.SetText("X " + Lives.ToString());
     }
 
     // Update is called once per frame
@@ -53,5 +55,24 @@ public class Game : MonoBehaviour
 
         //Update UI
         CandiesText.SetText("X " + Candies.ToString());
+    }
+
+    public void PlayerGotHit()
+    {
+        Lives--;
+
+        //Update UI
+        LivesText.SetText("X " + Lives.ToString());
+
+        //Game Over
+        if (Lives < 0)
+        {
+
+        }
+        //If Player Has More Lives
+        else
+        {
+            player.GotHit();
+        }
     }
 }

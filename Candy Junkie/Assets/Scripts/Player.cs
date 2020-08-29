@@ -42,4 +42,10 @@ public class Player : MonoBehaviour
         //Update Movement
         rb.velocity = new Vector2(moveByX, moveByY);
     }
+
+    //Called When Player Got Hit By Zombie But Still Has Lives
+    public void GotHit()
+    {
+
+    }
 }
