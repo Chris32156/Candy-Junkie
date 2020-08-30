@@ -7,15 +7,52 @@ public class Zombie : MonoBehaviour
     //Params
     [SerializeField] float MinSize = 0.7f;
     [SerializeField] float MaxSize = 1.5f;
-
+    [SerializeField] float XSpawnPos;
+    [SerializeField] float YSpawnPos;
     //Declare Vars
     Game game;
+    bool isLeftOrRight;
+    int xModifier = 1;
+    int yModifier = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         //Set Object Vars Values
         game = FindObjectOfType<Game>();
+
+        //Choose Which Border It Spawns On
+        int Border = Random.Range(1, 5); // 1 is Left 2 is Right 3 Is Top 4 is Bottom
+
+        //Sets Random Size
+        float size = Random.Range(MinSize, MaxSize);
+        transform.localScale = new Vector3(size, size, 0);
+
+        //Checks If It Spawns On Left Or Right
+        if (Border < 3)
+        {
+            isLeftOrRight = true;
+
+            //Sets It To -
+            if (Border == 1)
+            {
+                xModifier = -1;
+            }
+        }
+        //If It Spawns On Top Or Bottom
+        else
+        {
+            isLeftOrRight = false;
+
+            //Sets It To Negative if Bottom
+            if (Border == 4)
+            {
+                yModifier = -1;
+            }
+        }
+
+        //Sets Position
+        RandomSpawn();
     }
 
     // Update is called once per frame
@@ -28,5 +65,28 @@ public class Zombie : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         game.PlayerGotHit();
+    }
+
+    void RandomSpawn()
+    {
+        //Declare local Vars
+        float x;
+        float y;
+
+        //If Left Or Right
+        if (isLeftOrRight)
+        {
+            x = XSpawnPos * xModifier;
+            y = Random.Range(YSpawnPos * -1, YSpawnPos);
+        }
+        //If Is Top Or Bottom
+        else
+        {
+            y = YSpawnPos * yModifier;
+            x = Random.Range(XSpawnPos * -1, XSpawnPos);
+        }
+
+        //Set position
+        transform.position = new Vector3(x, y, 0);
     }
 }

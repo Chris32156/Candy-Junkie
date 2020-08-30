@@ -45,6 +45,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingNumberOfCandies: 3
   StartingHealth: 3
+  StartingZombies: 2
+  StartingCandies: 3
+  MinTimeUntilCandySpawn: 5
+  MaxTimeUntilCandySpawn: 30
+  MinTimeUntilZombieSpawn: 15
+  MaxTimeUntilZombieSpawn: 45
   fps: 60
+  MaxHealth: 99
   CandiesText: {fileID: 0}
-  Candy: {fileID: 5679133251959865534, guid: 9ba74ccfea39b2348bb30a349cdbd25c, type: 3}
+  LivesText: {fileID: 0}
+  Candy: {fileID: 5679133251959865532, guid: 9ba74ccfea39b2348bb30a349cdbd25c, type: 3}
+  Zombie: {fileID: 1810922337868901304, guid: 148f7c46a4be1d74091dbf389abb266d, type: 3}
