@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(moveByX, moveByY);
 
         //Check For Mouse Click
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             //Checks If Player Has Candy
             if (game.HasCandy())
