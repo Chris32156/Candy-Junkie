@@ -6,6 +6,11 @@ public class Player : MonoBehaviour
 {
     //Params
     [SerializeField] float speed = 1;
+    [SerializeField] float MinY;
+    [SerializeField] float MaxY;
+    [SerializeField] float MinX;
+    [SerializeField] float MaxX;
+    [SerializeField] float ScreenWrapBuffer;
     [SerializeField] float MaxSpeed;
     [SerializeField] float CandySpeed;
     [SerializeField] float SizeIncrease;
@@ -14,6 +19,7 @@ public class Player : MonoBehaviour
     //Declare Vars 
     Face face;
     Game game;
+    int modifier;
     float StartingSpeed;
     Vector3 startingSize;
     Vector3 CandyIncreaseSize;
@@ -73,6 +79,9 @@ public class Player : MonoBehaviour
                 //TODO
             }
         }
+
+        //Call Screenwrap Function
+        ScreenWrap();
     }
 
     //Function To Eat Candy
@@ -87,11 +96,49 @@ public class Player : MonoBehaviour
         //Adds Size
         body.localScale += CandyIncreaseSize;
         //BodyColider.size += new Vector2(SizeIncrease, 0);
+
+        //Debug 
+        Debug.Log("Speed:" + speed);
     }
 
     //Called When Player Got Hit By Zombie But Still Has Lives
     public void GotHit()
     {
         //TODO
+    }
+
+    public void ScreenWrap()
+    {
+        //Check Horizontal
+        if (transform.position.x <= MinX || transform.position.x >= MaxX)
+        {
+            if (transform.position.x > 0)
+            {
+                modifier = 1;
+            }
+            else
+            {
+                modifier = -1;
+            }
+            //Set Position To Opposite Side
+            transform.position = new Vector3(transform.position.x * -1f + (ScreenWrapBuffer * modifier), transform.position.y);
+        }
+
+        //Check Vertical
+        if (transform.position.y <= MinY || transform.position.y >= MaxY)
+        {
+            if (transform.position.y > 0)
+            {
+                modifier = 1;
+                transform.position = new Vector3(transform.position.x, transform.position.y * -1f + ((ScreenWrapBuffer * modifier) - 0.5f * modifier));
+            }
+            else
+            {
+                modifier = -1;
+
+                //Set Position To Opposite Side
+                transform.position = new Vector3(transform.position.x, transform.position.y * -1f + ((ScreenWrapBuffer * modifier) + 0.5f * modifier));
+            }
+        }
     }
 }

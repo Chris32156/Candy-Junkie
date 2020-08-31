@@ -86,6 +86,12 @@ public class Zombie : MonoBehaviour
             x = Random.Range(XSpawnPos * -1, XSpawnPos);
         }
 
+        //Fix Bug With Spawning Too High If Postive
+        if (y == YSpawnPos)
+        {
+            y -= 0.5f;
+        }
+
         //Set position
         transform.position = new Vector3(x, y, 0);
     }

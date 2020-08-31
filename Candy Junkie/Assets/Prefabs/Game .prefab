@@ -47,6 +47,8 @@ MonoBehaviour:
   StartingHealth: 3
   StartingZombies: 2
   StartingCandies: 3
+  MinTimeUntilHeartSpawn: 45
+  MaxTimeUntilHeartSpawn: 100
   MinTimeUntilCandySpawn: 5
   MaxTimeUntilCandySpawn: 30
   MinTimeUntilZombieSpawn: 15
@@ -57,3 +59,4 @@ MonoBehaviour:
   LivesText: {fileID: 0}
   Candy: {fileID: 5679133251959865532, guid: 9ba74ccfea39b2348bb30a349cdbd25c, type: 3}
   Zombie: {fileID: 1810922337868901304, guid: 148f7c46a4be1d74091dbf389abb266d, type: 3}
+  Heart: {fileID: 1346022330501707903, guid: f51218f34f6050841b5f17c6c6a2b1ff, type: 3}
