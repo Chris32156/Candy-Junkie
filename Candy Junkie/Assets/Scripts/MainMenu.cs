@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class MainMenu : MonoBehaviour
 {
     // Main Menu Buttons 
     public void Play()
     {
+        PlayerPrefs.SetFloat("Time Started", Time.time);
         SceneManager.LoadScene("Game");
     }
 
@@ -23,5 +25,11 @@ public class MainMenu : MonoBehaviour
     public void LinkButton()
     {
         Application.OpenURL("https://chris32156.itch.io/");
+    }
+
+    //Game Over Button
+    public void QuitToMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 }

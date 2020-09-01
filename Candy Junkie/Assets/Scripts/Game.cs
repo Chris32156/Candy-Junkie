@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -155,7 +156,7 @@ public class Game : MonoBehaviour
         //Game Over
         if (Lives <= 0)
         {
-            //TODO
+            SceneManager.LoadScene("Game Over");
         }
         //If Player Has More Lives
         else
