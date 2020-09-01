@@ -19,4 +19,9 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void LinkButton()
+    {
+        Application.OpenURL("https://chris32156.itch.io/");
+    }
 }
