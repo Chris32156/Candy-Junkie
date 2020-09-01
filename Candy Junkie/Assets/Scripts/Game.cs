@@ -153,9 +153,9 @@ public class Game : MonoBehaviour
         LivesText.SetText("X " + Lives.ToString());
 
         //Game Over
-        if (Lives < 0)
+        if (Lives <= 0)
         {
-
+            //TODO
         }
         //If Player Has More Lives
         else
