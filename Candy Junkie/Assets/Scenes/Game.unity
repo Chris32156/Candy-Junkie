@@ -772,6 +772,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7466115919690132328, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36,
+        type: 3}
+      propertyPath: InvincabilityTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7466115919690132333, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36,
         type: 3}
       propertyPath: m_Name
@@ -831,6 +836,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466115920187061749, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36,
+        type: 3}
+      propertyPath: HitColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466115920187061749, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36,
+        type: 3}
+      propertyPath: HitColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466115920187061749, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36,
+        type: 3}
+      propertyPath: HitColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466115920187061749, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36,
+        type: 3}
+      propertyPath: HitEffectDuration
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36, type: 3}

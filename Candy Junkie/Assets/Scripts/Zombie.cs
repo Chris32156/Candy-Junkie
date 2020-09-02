@@ -14,6 +14,7 @@ public class Zombie : MonoBehaviour
 
     //Declare Vars
     Game game;
+    Player player;
     bool isLeftOrRight;
     float size;
     int xModifier = 1;
@@ -24,6 +25,7 @@ public class Zombie : MonoBehaviour
     {
         //Set Object Vars Values
         game = FindObjectOfType<Game>();
+        player = FindObjectOfType<Player>();
 
         //Choose Which Border It Spawns On
         int Border = Random.Range(1, 5); // 1 is Left 2 is Right 3 Is Top 4 is Bottom
@@ -76,7 +78,11 @@ public class Zombie : MonoBehaviour
     //Called On Collision
     void OnCollisionEnter2D(Collision2D collision)
     {
-        game.PlayerGotHit();
+        //Checks If Player Can Be Hit
+        if (player.CanBeHit())
+        {
+            game.PlayerGotHit();
+        }
     }
 
     void RandomSpawn()

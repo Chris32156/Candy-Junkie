@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     //Params
     [SerializeField] float speed = 1;
+    [SerializeField] float InvincabilityTime;
     [SerializeField] float MinY;
     [SerializeField] float MaxY;
     [SerializeField] float MinX;
@@ -21,6 +22,8 @@ public class Player : MonoBehaviour
     Game game;
     int modifier;
     float StartingSpeed;
+    float timeHit;
+    bool hasBeenHit = false;
     Vector3 startingSize;
     Vector3 CandyIncreaseSize;
 
@@ -80,6 +83,12 @@ public class Player : MonoBehaviour
             }
         }
 
+        //Decrease Size
+        //TODO
+
+        //Decrease Speed
+        //TODO
+
         //Call Screenwrap Function
         ScreenWrap();
     }
@@ -104,7 +113,12 @@ public class Player : MonoBehaviour
     //Called When Player Got Hit By Zombie But Still Has Lives
     public void GotHit()
     {
-        //TODO
+        //Set Vars
+        hasBeenHit = true;
+        timeHit = Time.time;
+
+        //Hit Effect
+        face.GotHit();
     }
 
     public void ScreenWrap()
@@ -140,5 +154,11 @@ public class Player : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, transform.position.y * -1f + ((ScreenWrapBuffer * modifier) + 0.5f * modifier));
             }
         }
+    }
+
+    //Returns If Player Is Invincible Or Not
+    public bool CanBeHit()
+    {
+        return Time.time > timeHit + InvincabilityTime || !hasBeenHit;
     }
 }
