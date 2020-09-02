@@ -31,9 +31,9 @@ public class Game : MonoBehaviour
     Player player;
     Vector3 PositionOfCandy;
     Vector3 PositionOfHeart;
-    float timeCandySpawned = Time.time;
-    float timeZombieSpawned = Time.time;
-    float timeHeartSpawned = Time.time;
+    float timeCandySpawned;
+    float timeZombieSpawned;
+    float timeHeartSpawned;
     float timeUntilNextZombieSpawn;
     float timeUntilNextCandySpawn;
     float timeUntilNextHeartSpawn;
@@ -47,6 +47,9 @@ public class Game : MonoBehaviour
         //Get Defualts
         Candies = StartingNumberOfCandies;
         Lives = StartingHealth;
+        timeCandySpawned = Time.time;
+        timeZombieSpawned = Time.time;
+        timeHeartSpawned = Time.time;
 
         //Spawn Starting Amounts
 
