@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Zombie : MonoBehaviour
 {
@@ -9,9 +10,12 @@ public class Zombie : MonoBehaviour
     [SerializeField] float MaxSize = 1.5f;
     [SerializeField] float XSpawnPos;
     [SerializeField] float YSpawnPos;
+    [SerializeField] AIPath aiPath;
+
     //Declare Vars
     Game game;
     bool isLeftOrRight;
+    float size;
     int xModifier = 1;
     int yModifier = 1;
 
@@ -25,7 +29,7 @@ public class Zombie : MonoBehaviour
         int Border = Random.Range(1, 5); // 1 is Left 2 is Right 3 Is Top 4 is Bottom
 
         //Sets Random Size
-        float size = Random.Range(MinSize, MaxSize);
+        size = Random.Range(MinSize, MaxSize);
         transform.localScale = new Vector3(size, size, 0);
 
         //Checks If It Spawns On Left Or Right
@@ -58,7 +62,15 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Flip
+        if (aiPath.desiredVelocity.x >= 0.01f)
+        {
+            transform.localScale = new Vector3(-1f * size, transform.localScale.y, transform.localScale.z);
+        }
+        else if (aiPath.desiredVelocity.x <= -0.01f)
+        {
+            transform.localScale = new Vector3(size, transform.localScale.y, transform.localScale.z);
+        }
     }
 
     //Called On Collision

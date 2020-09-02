@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         //Update Movement
         rb.velocity = new Vector2(moveByX, moveByY);
 
-        //Check For Mouse Click
+        //Eat Candy
         if (Input.GetKeyDown(KeyCode.B))
         {
             //Checks If Player Has Candy
