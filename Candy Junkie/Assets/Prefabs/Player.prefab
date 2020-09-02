@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
+  InvincabilityTime: 1
   MinY: -5.5
   MaxY: 5
   MinX: -9
@@ -284,6 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RightFace: {fileID: 21300000, guid: 4b54c58ac0316b14c80cb9ed94a0d8dd, type: 3}
   LeftFace: {fileID: 21300000, guid: c7f1334a5ba89bf4c9654946a9d1410c, type: 3}
+  HitEffectDuration: 0.25
 --- !u!70 &715853223
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

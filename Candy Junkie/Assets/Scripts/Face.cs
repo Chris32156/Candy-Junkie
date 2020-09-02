@@ -7,12 +7,11 @@ public class Face : MonoBehaviour
     //Params
     [SerializeField] Sprite RightFace;
     [SerializeField] Sprite LeftFace;
-    [SerializeField] Color HitColor;
     [SerializeField] float HitEffectDuration;
 
     //Declare Vars
     Color startingColor;
-    float TimeColorChanged;
+    float TimeColorChanged = 0;
 
     //Cached Values
     SpriteRenderer sprite;
@@ -23,15 +22,15 @@ public class Face : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
 
         //Set Defualt
-        startingColor = sprite.material.color;
+        startingColor = sprite.color;
     }
 
     private void Update()
     {
         //Checks If Color Needs To Be Reverted
-        if (sprite.color != startingColor && Time.time > TimeColorChanged + Time.time)
+        if (Time.time > HitEffectDuration + TimeColorChanged)
         {
-            sprite.color = startingColor;
+            sprite.color = Color.white;
         }
     }
 
@@ -52,6 +51,6 @@ public class Face : MonoBehaviour
     {
         //Update Vars
         TimeColorChanged = Time.time;
-        sprite.material.color = HitColor;
+        sprite.color = Color.red;
     }
 }
