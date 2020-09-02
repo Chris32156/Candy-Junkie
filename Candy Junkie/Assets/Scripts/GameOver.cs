@@ -12,7 +12,7 @@ public class GameOver : MonoBehaviour
     void Start()
     {
         //Get How Many Seconds The Run Has Taken
-        int timeOfRun = Mathf.RoundToInt(Time.time) - Mathf.RoundToInt(PlayerPrefs.GetFloat("Time Started"));
+        int timeOfRun = Mathf.RoundToInt(Time.time) - PlayerPrefs.GetInt("Time Started", 0);
 
         //Get Minutes/ Seconds
         int Minutes = timeOfRun / 60;

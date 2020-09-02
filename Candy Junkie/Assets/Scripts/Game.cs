@@ -31,9 +31,9 @@ public class Game : MonoBehaviour
     Player player;
     Vector3 PositionOfCandy;
     Vector3 PositionOfHeart;
-    float timeCandySpawned = 0;
-    float timeZombieSpawned = 0;
-    float timeHeartSpawned = 0;
+    float timeCandySpawned = Time.time;
+    float timeZombieSpawned = Time.time;
+    float timeHeartSpawned = Time.time;
     float timeUntilNextZombieSpawn;
     float timeUntilNextCandySpawn;
     float timeUntilNextHeartSpawn;

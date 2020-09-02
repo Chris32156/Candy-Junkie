@@ -8,7 +8,8 @@ public class MainMenu : MonoBehaviour
     // Main Menu Buttons 
     public void Play()
     {
-        PlayerPrefs.SetFloat("Time Started", Time.time);
+        int a = Mathf.RoundToInt(Time.time);
+        PlayerPrefs.SetInt("Time Started", a);
         SceneManager.LoadScene("Game");
     }
 
