@@ -165,6 +165,8 @@ MonoBehaviour:
   MaxSpeed: 5
   CandySpeed: 0.5
   SizeIncrease: 0.01
+  SizeDecreasePerSecond: 0.1
+  SpeedDecreasePerSecond: 0.001
   body: {fileID: 7466115919189934862}
 --- !u!50 &7466115919690132335
 Rigidbody2D:

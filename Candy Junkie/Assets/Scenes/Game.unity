@@ -792,6 +792,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7466115919690132328, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36,
+        type: 3}
+      propertyPath: SizeDecreasePerSecond
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466115919690132328, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36,
+        type: 3}
+      propertyPath: SpeedDecreasePerSecond
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7466115919690132333, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36,
         type: 3}
       propertyPath: m_Name

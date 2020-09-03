@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     [SerializeField] float MaxSpeed;
     [SerializeField] float CandySpeed;
     [SerializeField] float SizeIncrease;
+    [SerializeField] float SizeDecreasePerSecond;
+    [SerializeField] float SpeedDecreasePerSecond;
     [SerializeField] Transform body;
 
     //Declare Vars 
@@ -23,6 +25,8 @@ public class Player : MonoBehaviour
     int modifier;
     float StartingSpeed;
     float timeHit;
+    float SpeedDecrease;
+    float SizeDecrease;
     bool hasBeenHit = false;
     Vector3 startingSize;
     Vector3 CandyIncreaseSize;
@@ -49,6 +53,8 @@ public class Player : MonoBehaviour
         startingSize = body.transform.localScale;
 
         CandyIncreaseSize = new Vector3(SizeIncrease, 0, 0);
+        SizeDecrease = SizeDecreasePerSecond / 60;
+        SpeedDecrease = SpeedDecreasePerSecond / 60;
     }
 
     // Update is called once per frame
@@ -84,10 +90,24 @@ public class Player : MonoBehaviour
         }
 
         //Decrease Size
-        
+        if (body.localScale != startingSize)
+        {
+            //Sets newX And Caps It
+            float newX = Mathf.Clamp(body.localScale.x - SizeDecrease, startingSize.x, body.localScale.x);
+
+            //Update Size
+            body.localScale = new Vector3(newX, body.localScale.y, body.localScale.z);
+        }
 
         //Decrease Speed
-        //TODO
+        if (speed != StartingSpeed)
+        {
+            //Gets newSpeed
+            float newSpeed = speed - SpeedDecrease;
+
+            //Updates Speed And Caps It
+            speed = Mathf.Clamp(newSpeed, StartingSpeed, MaxSpeed);
+        }
 
         //Call Screenwrap Function
         ScreenWrap();

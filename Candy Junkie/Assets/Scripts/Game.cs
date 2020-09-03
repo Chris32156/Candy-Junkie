@@ -38,6 +38,12 @@ public class Game : MonoBehaviour
     float timeUntilNextCandySpawn;
     float timeUntilNextHeartSpawn;
 
+    private void Awake()
+    {
+        //Set FPS
+        Application.targetFrameRate = fps;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
