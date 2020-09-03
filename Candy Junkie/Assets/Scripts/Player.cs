@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] float MaxX;
     [SerializeField] float ScreenWrapBuffer;
     [SerializeField] float MaxSpeed;
+    [SerializeField] float MaxSize;
     [SerializeField] float CandySpeed;
     [SerializeField] float SizeIncrease;
     [SerializeField] float SizeDecreasePerSecond;
@@ -87,6 +88,16 @@ public class Player : MonoBehaviour
                 //Play Sound To Show Player Has No Candy
                 //TODO
             }
+        }
+
+        //Checks If Size Is Too Big
+        if (body.localScale.x > MaxSize)
+        {
+            //Set Death Message
+            //TODO
+
+            //Call Game Over Function
+            game.gameOver();
         }
 
         //Decrease Size

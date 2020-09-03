@@ -123,12 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &8427375 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1810922337868901304, guid: 148f7c46a4be1d74091dbf389abb266d,
-    type: 3}
-  m_PrefabInstance: {fileID: 6103520133507106801}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &376774848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7466115919690132334, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36,
@@ -628,11 +622,6 @@ PrefabInstance:
       propertyPath: LivesText
       value: 
       objectReference: {fileID: 2042030416}
-    - target: {fileID: 5591916224912736449, guid: 8fe18a035c8acba4fbbbb27990bae470,
-        type: 3}
-      propertyPath: Zombie
-      value: 
-      objectReference: {fileID: 8427375}
     - target: {fileID: 5591916224912736450, guid: 8fe18a035c8acba4fbbbb27990bae470,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -792,16 +781,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7466115919690132328, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36,
-        type: 3}
-      propertyPath: SizeDecreasePerSecond
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7466115919690132328, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36,
-        type: 3}
-      propertyPath: SpeedDecreasePerSecond
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 7466115919690132333, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36,
         type: 3}
       propertyPath: m_Name

@@ -155,18 +155,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ae4ccd813daf349904c41028694457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  speed: 3
   InvincabilityTime: 1
   MinY: -5.5
   MaxY: 5
   MinX: -9
   MaxX: 9
   ScreenWrapBuffer: 0.1
-  MaxSpeed: 5
+  MaxSpeed: 5.5
+  MaxSize: 0.15
   CandySpeed: 0.5
   SizeIncrease: 0.01
-  SizeDecreasePerSecond: 0.1
-  SpeedDecreasePerSecond: 0.001
+  SizeDecreasePerSecond: 0.001
+  SpeedDecreasePerSecond: 0.1
   body: {fileID: 7466115919189934862}
 --- !u!50 &7466115919690132335
 Rigidbody2D:

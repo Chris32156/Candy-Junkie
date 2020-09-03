@@ -135,6 +135,9 @@ public class Game : MonoBehaviour
         //Adds One To Candies
         Candies++;
 
+        //Caps Candies
+        Mathf.Clamp(Candies, 0, 99);
+
         //Update UI
         CandiesText.SetText("X " + Candies.ToString());
     }
@@ -165,7 +168,7 @@ public class Game : MonoBehaviour
         //Game Over
         if (Lives <= 0)
         {
-            SceneManager.LoadScene("Game Over");
+            gameOver();
         }
         //If Player Has More Lives
         else
@@ -186,10 +189,22 @@ public class Game : MonoBehaviour
             //Removes One Candy
             Candies--;
 
+            //Caps Candies
+            Mathf.Clamp(Candies, 0, 99);
+
             //Updates UI
             CandiesText.SetText("X " + Candies.ToString());
 
             return true;
         }
+    }
+
+    public void gameOver()
+    {
+        //Death Effects
+        //TODO
+
+        //Load Game Over Scene
+        SceneManager.LoadScene("Game Over");
     }
 }

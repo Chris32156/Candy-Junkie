@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40b343cc58d1cb4c8b6f774e1be6500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingNumberOfCandies: 3
+  StartingNumberOfCandies: 0
   StartingHealth: 3
   StartingZombies: 2
   StartingCandies: 3
