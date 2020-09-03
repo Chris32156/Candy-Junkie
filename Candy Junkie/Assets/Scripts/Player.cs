@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
 
         //Set Defualts
         StartingSpeed = speed;
-        startingSize = transform.position;
+        startingSize = body.transform.localScale;
 
         CandyIncreaseSize = new Vector3(SizeIncrease, 0, 0);
     }
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
         }
 
         //Decrease Size
-        //TODO
+        
 
         //Decrease Speed
         //TODO
@@ -121,6 +121,7 @@ public class Player : MonoBehaviour
         face.GotHit();
     }
 
+    //Function For ScreenWraping
     public void ScreenWrap()
     {
         //Check Horizontal
