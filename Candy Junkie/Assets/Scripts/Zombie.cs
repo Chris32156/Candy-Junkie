@@ -16,6 +16,7 @@ public class Zombie : MonoBehaviour
     Game game;
     Player player;
     bool isLeftOrRight;
+    bool IsCollidingWithPlayer = false;
     float size;
     int xModifier = 1;
     int yModifier = 1;
@@ -73,18 +74,35 @@ public class Zombie : MonoBehaviour
         {
             transform.localScale = new Vector3(size, transform.localScale.y, transform.localScale.z);
         }
-    }
 
-    //Called On Collision
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        //Checks If Player Can Be Hit
-        if (player.CanBeHit())
+        //Calls PlayerGotHit If Player Is Colliding And Can Be Hit
+        if (player.CanBeHit() && IsCollidingWithPlayer)
         {
             game.PlayerGotHit();
         }
     }
 
+    //Called On Collision
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Sets IsCollidingWithPlayer To True On Start Of Collision
+        if (collision.gameObject.tag == "Player")
+        {
+            IsCollidingWithPlayer = true;
+        }
+    }
+
+    //Called On End Of Collision
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        //Sets IsCollidingWithPlayer To False On End Of Collision
+        if (collision.gameObject.tag == "Player")
+        {
+            IsCollidingWithPlayer = false;
+        }
+    }
+
+    //Function To Set Position
     void RandomSpawn()
     {
         //Declare local Vars
