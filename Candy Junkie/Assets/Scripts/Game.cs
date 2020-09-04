@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -29,6 +28,7 @@ public class Game : MonoBehaviour
     int Candies;
     int Lives;
     Player player;
+    SceneManagement SceneManager;
     AudioManager audio;
     Vector3 PositionOfCandy;
     Vector3 PositionOfHeart;
@@ -51,6 +51,7 @@ public class Game : MonoBehaviour
         //Set Object Vars Values
         player = FindObjectOfType<Player>();
         audio = FindObjectOfType<AudioManager>();
+        SceneManager = FindObjectOfType<SceneManagement>();
 
         //Get Defualts
         Candies = StartingNumberOfCandies;

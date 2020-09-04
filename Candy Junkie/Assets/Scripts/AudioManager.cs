@@ -14,11 +14,20 @@ public class AudioManager : MonoBehaviour
     //Cached Refrences
     AudioSource audio;
 
-    // Start is called before the first frame update
     void Awake()
     {
-        //Keeps It Loaded Even In Between Scenes
-        DontDestroyOnLoad(gameObject);
+        var objs = FindObjectsOfType<AudioManager>();
+
+        //Checks If Already Spawned
+        if (objs.Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            //Keeps It Loaded Even In Between Scenes
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     private void Start()

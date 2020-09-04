@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -10,10 +9,12 @@ public class MainMenu : MonoBehaviour
 
     //Declare Vars
     AudioManager audioManager;
+    SceneManagement SceneManagement;
 
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
+        SceneManagement = FindObjectOfType<SceneManagement>();
     }
 
     // Main Menu Buttons 
@@ -21,13 +22,13 @@ public class MainMenu : MonoBehaviour
     {
         int a = Mathf.RoundToInt(Time.time);
         PlayerPrefs.SetInt("Time Started", a);
-        SceneManager.LoadScene("Game");
+        SceneManagement.LoadScene("Game");
         audioManager.ButtonPress();
     }
 
     public void Settings()
     {
-        SceneManager.LoadScene("Settings");
+        SceneManagement.LoadScene("Settings");
         audioManager.ButtonPress();
     }
 
@@ -46,7 +47,7 @@ public class MainMenu : MonoBehaviour
     //Game Over Button
     public void QuitToMainMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManagement.LoadScene("Main Menu");
         audioManager.ButtonPress();
     }
 }
