@@ -217,6 +217,9 @@ public class Game : MonoBehaviour
         //Death Effects
         //TODO
 
+        //Call Player Function 
+        player.gameOver();
+
         //Load Game Over Scene
         SceneManager.LoadScene("Game Over");
     }

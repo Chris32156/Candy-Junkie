@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     float timeHit;
     float SpeedDecrease;
     float SizeDecrease;
+    bool alive = true;
     bool hasBeenHit = false;
     Vector3 startingSize;
     Vector3 CandyIncreaseSize;
@@ -63,70 +64,74 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Get Movement Input
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
-
-        //Update Face
-        face.flipFace(x);
-
-        //Get Movement Values
-        float moveByX = x * speed;
-        float moveByY = y * speed;
-
-        //Update Movement
-        rb.velocity = new Vector2(moveByX, moveByY);
-
-        //Eat Candy
-        if (Input.GetKeyDown(KeyCode.B))
+        //Makes Sure Player Is Alive
+        if (alive)
         {
-            //Checks If Player Has Candy
-            if (game.HasCandy())
+            //Get Movement Input
+            float x = Input.GetAxisRaw("Horizontal");
+            float y = Input.GetAxisRaw("Vertical");
+
+            //Update Face
+            face.flipFace(x);
+
+            //Get Movement Values
+            float moveByX = x * speed;
+            float moveByY = y * speed;
+
+            //Update Movement
+            rb.velocity = new Vector2(moveByX, moveByY);
+
+            //Eat Candy
+            if (Input.GetKeyDown(KeyCode.B))
             {
-                eatCandy();
+                //Checks If Player Has Candy
+                if (game.HasCandy())
+                {
+                    eatCandy();
+                }
+                else
+                {
+                    //Play Sound To Show Player Has No Candy
+                    //TODO
+                }
             }
-            else
+
+            //Checks If Size Is Too Big
+            if (body.localScale.x > MaxSize)
             {
-                //Play Sound To Show Player Has No Candy
+                //Set Death Message
                 //TODO
+
+                //Play Sound Effect
+                audio.ExplosionDeath();
+
+                //Call Game Over Function
+                game.gameOver();
             }
+
+            //Decrease Size
+            if (body.localScale != startingSize)
+            {
+                //Sets newX And Caps It
+                float newX = Mathf.Clamp(body.localScale.x - SizeDecrease, startingSize.x, body.localScale.x);
+
+                //Update Size
+                body.localScale = new Vector3(newX, body.localScale.y, body.localScale.z);
+            }
+
+            //Decrease Speed
+            if (speed != StartingSpeed)
+            {
+                //Gets newSpeed
+                float newSpeed = speed - SpeedDecrease;
+
+                //Updates Speed And Caps It
+                speed = Mathf.Clamp(newSpeed, StartingSpeed, MaxSpeed);
+            }
+
+            //Call Screenwrap Function
+            ScreenWrap();
         }
-
-        //Checks If Size Is Too Big
-        if (body.localScale.x > MaxSize)
-        {
-            //Set Death Message
-            //TODO
-
-            //Play Sound Effect
-            audio.ExplosionDeath();
-
-            //Call Game Over Function
-            game.gameOver();
-        }
-
-        //Decrease Size
-        if (body.localScale != startingSize)
-        {
-            //Sets newX And Caps It
-            float newX = Mathf.Clamp(body.localScale.x - SizeDecrease, startingSize.x, body.localScale.x);
-
-            //Update Size
-            body.localScale = new Vector3(newX, body.localScale.y, body.localScale.z);
-        }
-
-        //Decrease Speed
-        if (speed != StartingSpeed)
-        {
-            //Gets newSpeed
-            float newSpeed = speed - SpeedDecrease;
-
-            //Updates Speed And Caps It
-            speed = Mathf.Clamp(newSpeed, StartingSpeed, MaxSpeed);
-        }
-
-        //Call Screenwrap Function
-        ScreenWrap();
     }
 
     //Function To Eat Candy
@@ -196,6 +201,12 @@ public class Player : MonoBehaviour
     //Returns If Player Is Invincible Or Not
     public bool CanBeHit()
     {
-        return Time.time > timeHit + InvincabilityTime || !hasBeenHit;
+        return (Time.time > timeHit + InvincabilityTime || !hasBeenHit) && alive;
+    }
+
+    public void gameOver()
+    {
+        //Update Vars
+        alive = false;
     }
 }
