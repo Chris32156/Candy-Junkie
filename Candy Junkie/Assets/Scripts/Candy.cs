@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Candy : MonoBehaviour
 {
+    //Params 
+    [SerializeField] AudioClip PickupSound;
+
     //Declare Vars
     Game game;
 
@@ -19,6 +22,9 @@ public class Candy : MonoBehaviour
         //Makes Sure Collision Is The Player
         if (collision.gameObject.tag == "Player")
         {
+            //Plays Sound Effect
+            AudioSource.PlayClipAtPoint(PickupSound, Camera.main.transform.position);
+
             //Call Game Function For When Player Gets A Candy 
             game.GotCandy();
 

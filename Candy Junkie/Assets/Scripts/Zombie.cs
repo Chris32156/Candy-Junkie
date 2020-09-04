@@ -11,6 +11,7 @@ public class Zombie : MonoBehaviour
     [SerializeField] float XSpawnPos;
     [SerializeField] float YSpawnPos;
     [SerializeField] AIPath aiPath;
+    [SerializeField] AudioClip HitSound;
 
     //Declare Vars
     Game game;
@@ -78,6 +79,16 @@ public class Zombie : MonoBehaviour
         //Calls PlayerGotHit If Player Is Colliding And Can Be Hit
         if (player.CanBeHit() && IsCollidingWithPlayer)
         {
+            //Plays Sound Effect If Player Has > 1 life
+            if (game.GetLives() > 1)
+            {
+                AudioSource.PlayClipAtPoint(HitSound, Camera.main.transform.position);
+            }
+            //Plays Game Over Sound Effect
+            else
+            {
+                //TODO
+            }
             game.PlayerGotHit();
         }
     }

@@ -29,6 +29,7 @@ public class Game : MonoBehaviour
     int Candies;
     int Lives;
     Player player;
+    AudioManager audio;
     Vector3 PositionOfCandy;
     Vector3 PositionOfHeart;
     float timeCandySpawned;
@@ -49,6 +50,7 @@ public class Game : MonoBehaviour
     {
         //Set Object Vars Values
         player = FindObjectOfType<Player>();
+        audio = FindObjectOfType<AudioManager>();
 
         //Get Defualts
         Candies = StartingNumberOfCandies;
@@ -154,6 +156,7 @@ public class Game : MonoBehaviour
         //Update UI
         LivesText.SetText("X " + Lives.ToString());
     }
+
     //Called When Player Gets Hit By A Zombie
     public void PlayerGotHit()
     {
@@ -168,6 +171,9 @@ public class Game : MonoBehaviour
         //Game Over
         if (Lives <= 0)
         {
+            //Sound Effect
+            audio.GameOver();
+
             gameOver();
         }
         //If Player Has More Lives
@@ -182,10 +188,16 @@ public class Game : MonoBehaviour
     {
         if (Candies <= 0)
         {
+            //Sound Effect
+            audio.NoCandy();
+
             return false;
         }
         else
         {
+            //Sound Effect
+            audio.EatCandy(); 
+
             //Removes One Candy
             Candies--;
 
@@ -206,5 +218,10 @@ public class Game : MonoBehaviour
 
         //Load Game Over Scene
         SceneManager.LoadScene("Game Over");
+    }
+
+    public int GetLives()
+    {
+        return Lives;
     }
 }

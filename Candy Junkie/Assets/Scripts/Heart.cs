@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Heart : MonoBehaviour
 {
+    //Params
+    [SerializeField] AudioClip HeartPickup;
+
     //Declare Vars
     Game game;
 
@@ -20,6 +23,9 @@ public class Heart : MonoBehaviour
         //Makes Sure Collision Is The Player
         if (collision.gameObject.tag == "Player")
         {
+            //Plays Sound Effect
+            AudioSource.PlayClipAtPoint(HeartPickup, Camera.main.transform.position);
+
             //Call Game Function For When Player Gets A Candy 
             game.GotHeart();
 

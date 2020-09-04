@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     //Declare Vars 
     Face face;
     Game game;
+    AudioManager audio;
     int modifier;
     float StartingSpeed;
     float timeHit;
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour
         //Set Object Vars Values
         face = FindObjectOfType<Face>();
         game = FindObjectOfType<Game>();
+        audio = FindObjectOfType<AudioManager>();
 
         //Set Defualts
         StartingSpeed = speed;
@@ -95,6 +97,9 @@ public class Player : MonoBehaviour
         {
             //Set Death Message
             //TODO
+
+            //Play Sound Effect
+            audio.ExplosionDeath();
 
             //Call Game Over Function
             game.gameOver();
