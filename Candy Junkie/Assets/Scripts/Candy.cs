@@ -9,8 +9,9 @@ public class Candy : MonoBehaviour
 
     //Declare Vars
     Game game;
+    bool hasBeenCollected = false;
 
-    private void Start()
+    private void Awake()
     {
         //Set Object Vars Values
         game = FindObjectOfType<Game>();    
@@ -20,8 +21,11 @@ public class Candy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Makes Sure Collision Is The Player
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !hasBeenCollected)
         {
+            //Update Var
+            hasBeenCollected = true;
+
             //Plays Sound Effect
             AudioSource.PlayClipAtPoint(PickupSound, Camera.main.transform.position);
 

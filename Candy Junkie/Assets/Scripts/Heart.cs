@@ -9,6 +9,7 @@ public class Heart : MonoBehaviour
 
     //Declare Vars
     Game game;
+    bool hasBeenCollected = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +22,11 @@ public class Heart : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Makes Sure Collision Is The Player
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !hasBeenCollected)
         {
+            //Update Var
+            hasBeenCollected = true;
+
             //Plays Sound Effect
             AudioSource.PlayClipAtPoint(HeartPickup, Camera.main.transform.position);
 
