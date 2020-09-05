@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    //Params
-    [SerializeField] float ButtonDelayTime;
-
     //Declare Vars
     AudioManager audioManager;
     SceneManagement SceneManagement;
@@ -48,6 +46,18 @@ public class MainMenu : MonoBehaviour
     public void QuitToMainMenu()
     {
         SceneManagement.LoadScene("Main Menu");
+        audioManager.ButtonPress();
+    }
+
+    public void QuitToMainMenuNoTransition()
+    {
+        SceneManager.LoadScene("Main Menu 1");
+        audioManager.ButtonPress();
+    }
+
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
         audioManager.ButtonPress();
     }
 }

@@ -132,6 +132,11 @@ public class Player : MonoBehaviour
             //Call Screenwrap Function
             ScreenWrap();
         }
+        //If Player Isn't Alive
+        else
+        {
+            rb.velocity = new Vector2(0, 0);
+        }
     }
 
     //Function To Eat Candy
