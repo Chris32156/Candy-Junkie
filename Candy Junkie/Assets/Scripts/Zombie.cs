@@ -9,6 +9,9 @@ public class Zombie : MonoBehaviour
     [SerializeField] float MinSize = 0.7f;
     [SerializeField] float MaxSize = 1.5f;
     [SerializeField] float XSpawnPos;
+    [SerializeField] float StartingSpeedMin;
+    [SerializeField] float StartingSpeedMax;
+    [SerializeField] float hardSpeedIncrease;
     [SerializeField] float YSpawnPos;
     [SerializeField] AIPath aiPath;
     [SerializeField] AudioClip HitSound;
@@ -77,6 +80,16 @@ public class Zombie : MonoBehaviour
 
         //Sets Position
         RandomSpawn();
+
+        //Set Starting Speed
+        float StartingSpeed = Random.Range(StartingSpeedMin, StartingSpeedMax);
+        aiPath.maxSpeed = StartingSpeed;
+
+        //Check If Difficulty Is Hard
+        if (PlayerPrefs.GetString("Difficulty") == "Hard")
+        {
+            aiPath.maxSpeed += hardSpeedIncrease;
+        }
     }
 
     // Update is called once per frame
