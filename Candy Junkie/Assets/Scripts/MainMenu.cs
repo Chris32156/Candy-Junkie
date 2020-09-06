@@ -60,4 +60,24 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Tutorial");
         audioManager.ButtonPress();
     }
+
+    public void Difficulty()
+    {
+        SceneManager.LoadScene("Difficulty Menu");
+        audioManager.ButtonPress();
+    }
+
+    public void MediumButton()
+    {
+        PlayerPrefs.SetString("Difficulty", "Medium");
+        SceneManagement.LoadScene("Game");
+        audioManager.ButtonPress();
+    }
+
+    public void HardButton()
+    {
+        PlayerPrefs.SetString("Difficulty", "Hard");
+        SceneManagement.LoadScene("Game");
+        audioManager.ButtonPress();
+    }
 }

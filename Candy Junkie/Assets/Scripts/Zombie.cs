@@ -161,9 +161,11 @@ public class Zombie : MonoBehaviour
 
     private void spriteRandomizer()
     {
+        //Random Index
         int faceIndex = Random.Range(0, Faces.Length);
         int bodyIndex = Random.Range(0, Bodies.Length);
 
+        //Update Sprite
         faceSprite.sprite = Faces[faceIndex];
         bodySprite.sprite = Bodies[bodyIndex];
     }
