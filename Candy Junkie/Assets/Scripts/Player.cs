@@ -72,7 +72,14 @@ public class Player : MonoBehaviour
             float y = Input.GetAxisRaw("Vertical");
 
             //Update Face
-            face.flipFace(x);
+            if (x > 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (x < 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
 
             //Get Movement Values
             float moveByX = x * speed;

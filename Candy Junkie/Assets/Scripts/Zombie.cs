@@ -12,6 +12,10 @@ public class Zombie : MonoBehaviour
     [SerializeField] float YSpawnPos;
     [SerializeField] AIPath aiPath;
     [SerializeField] AudioClip HitSound;
+    [SerializeField] Transform body;
+    [SerializeField] Transform face;
+    [SerializeField] Sprite[] Faces;
+    [SerializeField] Sprite[] Bodies;
 
     //Declare Vars
     Game game;
@@ -22,6 +26,10 @@ public class Zombie : MonoBehaviour
     int xModifier = 1;
     int yModifier = 1;
 
+    //Cached Values
+    SpriteRenderer bodySprite;
+    SpriteRenderer faceSprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,12 +37,20 @@ public class Zombie : MonoBehaviour
         game = FindObjectOfType<Game>();
         player = FindObjectOfType<Player>();
 
+        //Get Components
+        bodySprite = body.GetComponent<SpriteRenderer>();
+        faceSprite = face.GetComponent<SpriteRenderer>();
+
+
+        //Sets Sprites
+        spriteRandomizer();
+
         //Choose Which Border It Spawns On
         int Border = Random.Range(1, 5); // 1 is Left 2 is Right 3 Is Top 4 is Bottom
 
         //Sets Random Size
         size = Random.Range(MinSize, MaxSize);
-        transform.localScale = new Vector3(size, size, 0);
+        transform.localScale = new Vector3(size, size, 1);
 
         //Checks If It Spawns On Left Or Right
         if (Border < 3)
@@ -141,5 +157,14 @@ public class Zombie : MonoBehaviour
 
         //Set position
         transform.position = new Vector3(x, y, 0);
+    }
+
+    private void spriteRandomizer()
+    {
+        int faceIndex = Random.Range(0, Faces.Length);
+        int bodyIndex = Random.Range(0, Bodies.Length);
+
+        faceSprite.sprite = Faces[faceIndex];
+        bodySprite.sprite = Bodies[bodyIndex];
     }
 }

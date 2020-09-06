@@ -71,6 +71,22 @@ MonoBehaviour:
   YSpawnPos: 6
   aiPath: {fileID: 3918931699605684462}
   HitSound: {fileID: 8300000, guid: 6d695868db0372d4db4981fa0712a665, type: 3}
+  body: {fileID: 90387127652405441}
+  face: {fileID: 8819952158064294386}
+  Faces:
+  - {fileID: 21300000, guid: e106c847e1b48814fa0cb8e0c01ba535, type: 3}
+  - {fileID: 21300000, guid: d6dd5deaedfd5584fac21cfbbed02601, type: 3}
+  - {fileID: 21300000, guid: d9e20a7cbe26707498e7d3e48c61e8cc, type: 3}
+  - {fileID: 21300000, guid: 655b0377e48eab643b66651abc684c7d, type: 3}
+  - {fileID: 21300000, guid: fcf1038cc75b8cd44b0bd784f2543f53, type: 3}
+  - {fileID: 21300000, guid: c079a11ea3d89954eb232f7dc6ebd0fa, type: 3}
+  Bodies:
+  - {fileID: 21300000, guid: 43ee4448acaf1a949b2dea7877224ca9, type: 3}
+  - {fileID: 21300000, guid: b76464a4a69c2344cb9eea38aa6a4a56, type: 3}
+  - {fileID: 21300000, guid: fbec74c728c776b409f8402f8ee4a44b, type: 3}
+  - {fileID: 21300000, guid: 80607f81189dd0f4086623ad7d556b90, type: 3}
+  - {fileID: 21300000, guid: af9e50929ab5d8147a6c957d8808ec2c, type: 3}
+  - {fileID: 21300000, guid: 15b4c6dffe5f30e4aa92ae642eff548c, type: 3}
 --- !u!114 &8771466703589437104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +318,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 54d520312fb18a24a95946a40072803c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e106c847e1b48814fa0cb8e0c01ba535, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
