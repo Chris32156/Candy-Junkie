@@ -50,9 +50,9 @@ MonoBehaviour:
   MinTimeUntilHeartSpawn: 45
   MaxTimeUntilHeartSpawn: 100
   MinTimeUntilCandySpawn: 5
-  MaxTimeUntilCandySpawn: 30
+  MaxTimeUntilCandySpawn: 15
   MinTimeUntilZombieSpawn: 10
-  MaxTimeUntilZombieSpawn: 35
+  MaxTimeUntilZombieSpawn: 25
   fps: 60
   MaxHealth: 99
   CandiesText: {fileID: 0}

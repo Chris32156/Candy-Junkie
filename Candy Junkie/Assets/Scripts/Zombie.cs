@@ -11,8 +11,12 @@ public class Zombie : MonoBehaviour
     [SerializeField] float XSpawnPos;
     [SerializeField] float StartingSpeedMin;
     [SerializeField] float StartingSpeedMax;
-    [SerializeField] float hardSpeedIncrease;
+    [SerializeField] float hardStartingSpeedIncrease;
     [SerializeField] float YSpawnPos;
+    [SerializeField] float SpeedIncreasePerMinuteMin;
+    [SerializeField] float SpeedIncreasePerMinuteMax;
+    [SerializeField] float HardSpeedIncrease;
+    [SerializeField] float MaxSpeed;
     [SerializeField] AIPath aiPath;
     [SerializeField] AudioClip HitSound;
     [SerializeField] Transform body;
@@ -26,6 +30,7 @@ public class Zombie : MonoBehaviour
     bool isLeftOrRight;
     bool IsCollidingWithPlayer = false;
     float size;
+    float speedIncrease;
     int xModifier = 1;
     int yModifier = 1;
 
@@ -85,10 +90,14 @@ public class Zombie : MonoBehaviour
         float StartingSpeed = Random.Range(StartingSpeedMin, StartingSpeedMax);
         aiPath.maxSpeed = StartingSpeed;
 
+        //Set Speed Increase
+        speedIncrease = Random.Range(SpeedIncreasePerMinuteMin, SpeedIncreasePerMinuteMax) / 3600;
+
         //Check If Difficulty Is Hard
         if (PlayerPrefs.GetString("Difficulty") == "Hard")
         {
-            aiPath.maxSpeed += hardSpeedIncrease;
+            aiPath.maxSpeed += hardStartingSpeedIncrease;
+            speedIncrease += HardSpeedIncrease;
         }
     }
 
@@ -104,6 +113,9 @@ public class Zombie : MonoBehaviour
         {
             transform.localScale = new Vector3(size, transform.localScale.y, transform.localScale.z);
         }
+
+        //Increase Speed
+        aiPath.maxSpeed = Mathf.Clamp(aiPath.maxSpeed + speedIncrease, StartingSpeedMin, MaxSpeed);
 
         //Calls PlayerGotHit If Player Is Colliding And Can Be Hit
         if (player.CanBeHit() && IsCollidingWithPlayer)

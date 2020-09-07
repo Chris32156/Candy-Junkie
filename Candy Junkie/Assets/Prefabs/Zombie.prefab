@@ -70,8 +70,11 @@ MonoBehaviour:
   XSpawnPos: 9.1
   StartingSpeedMin: 2
   StartingSpeedMax: 2.5
-  hardSpeedIncrease: 1
+  hardStartingSpeedIncrease: 0.5
   YSpawnPos: 6
+  SpeedIncreasePerSecondMin: 0
+  SpeedIncreasePerSecondMax: 0
+  HardSpeedIncrease: 0
   aiPath: {fileID: 3918931699605684462}
   HitSound: {fileID: 8300000, guid: 6d695868db0372d4db4981fa0712a665, type: 3}
   body: {fileID: 90387127652405441}

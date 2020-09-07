@@ -573,6 +573,36 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1483943102965016820, guid: 148f7c46a4be1d74091dbf389abb266d,
+        type: 3}
+      propertyPath: SpeedIncreasePerSecondMin
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483943102965016820, guid: 148f7c46a4be1d74091dbf389abb266d,
+        type: 3}
+      propertyPath: SpeedIncreasePerSecondMax
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483943102965016820, guid: 148f7c46a4be1d74091dbf389abb266d,
+        type: 3}
+      propertyPath: HardSpeedIncrease
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483943102965016820, guid: 148f7c46a4be1d74091dbf389abb266d,
+        type: 3}
+      propertyPath: SpeedIncreasePerMinuteMin
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483943102965016820, guid: 148f7c46a4be1d74091dbf389abb266d,
+        type: 3}
+      propertyPath: SpeedIncreasePerMinuteMax
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483943102965016820, guid: 148f7c46a4be1d74091dbf389abb266d,
+        type: 3}
+      propertyPath: MaxSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2560043649381832716, guid: 148f7c46a4be1d74091dbf389abb266d,
         type: 3}
       propertyPath: target
@@ -787,6 +817,11 @@ PrefabInstance:
       propertyPath: Zombie
       value: 
       objectReference: {fileID: 76333762}
+    - target: {fileID: 5591916224912736449, guid: 8fe18a035c8acba4fbbbb27990bae470,
+        type: 3}
+      propertyPath: MaxTimeUntilZombieSpawn
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5591916224912736450, guid: 8fe18a035c8acba4fbbbb27990bae470,
         type: 3}
       propertyPath: m_LocalPosition.x
