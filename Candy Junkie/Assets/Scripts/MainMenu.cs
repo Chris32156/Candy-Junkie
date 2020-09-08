@@ -8,76 +8,116 @@ public class MainMenu : MonoBehaviour
     //Declare Vars
     AudioManager audioManager;
     SceneManagement SceneManagement;
+    bool ButtonPressed = false;
 
     private void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
-        SceneManagement = FindObjectOfType<SceneManagement>();
+            audioManager = FindObjectOfType<AudioManager>();
+            SceneManagement = FindObjectOfType<SceneManagement>();
     }
 
     // Main Menu Buttons 
     public void Play()
     {
-        int a = Mathf.RoundToInt(Time.time);
-        PlayerPrefs.SetInt("Time Started", a);
-        SceneManagement.LoadScene("Game");
-        audioManager.ButtonPress();
+        if (!ButtonPressed)
+        {
+            int a = Mathf.RoundToInt(Time.time);
+            PlayerPrefs.SetInt("Time Started", a);
+            SceneManagement.LoadScene("Game");
+            audioManager.ButtonPress();
+            ButtonPressed = true;
+        }
     }
 
     public void Settings()
     {
-        SceneManagement.LoadScene("Settings");
-        audioManager.ButtonPress();
+        if (!ButtonPressed)
+        {
+            SceneManagement.LoadScene("Settings");
+            audioManager.ButtonPress();
+            ButtonPressed = true;
+        }
     }
 
     public void Quit()
     {
-        audioManager.ButtonPress();
-        Application.Quit();
+        if (!ButtonPressed)
+        {
+            audioManager.ButtonPress();
+            Application.Quit();
+            ButtonPressed = true;
+        }
     }
 
     public void LinkButton()
     {
-        audioManager.ButtonPress();
-        Application.OpenURL("https://chris32156.itch.io/");
+        if (!ButtonPressed)
+        {
+            audioManager.ButtonPress();
+            Application.OpenURL("https://chris32156.itch.io/");
+        }
     }
 
     //Game Over Button
     public void QuitToMainMenu()
     {
-        SceneManagement.LoadScene("Main Menu");
-        audioManager.ButtonPress();
+        if (!ButtonPressed)
+        {
+            SceneManagement.LoadScene("Main Menu");
+            audioManager.ButtonPress();
+            ButtonPressed = true;
+        }
     }
 
     public void QuitToMainMenuNoTransition()
     {
-        SceneManager.LoadScene("Main Menu 1");
-        audioManager.ButtonPress();
+        if (!ButtonPressed)
+        {
+            SceneManager.LoadScene("Main Menu 1");
+            audioManager.ButtonPress();
+            ButtonPressed = true;
+        }
     }
 
     public void Tutorial()
     {
-        SceneManager.LoadScene("Tutorial");
-        audioManager.ButtonPress();
+        if (!ButtonPressed)
+        {
+            SceneManager.LoadScene("Tutorial");
+            audioManager.ButtonPress();
+            ButtonPressed = true;
+        }
     }
 
     public void Difficulty()
     {
-        SceneManager.LoadScene("Difficulty Menu");
-        audioManager.ButtonPress();
+        if (!ButtonPressed)
+        {
+            SceneManager.LoadScene("Difficulty Menu");
+            audioManager.ButtonPress();
+            ButtonPressed = true;
+        }
     }
 
     public void MediumButton()
     {
-        PlayerPrefs.SetString("Difficulty", "Medium");
-        SceneManagement.LoadScene("Game");
-        audioManager.ButtonPress();
+        if (!ButtonPressed)
+        {
+            PlayerPrefs.SetString("Difficulty", "Medium");
+            SceneManagement.LoadScene("Game");
+            audioManager.ButtonPress();
+            ButtonPressed = true;
+        }
     }
 
     public void HardButton()
     {
-        PlayerPrefs.SetString("Difficulty", "Hard");
-        SceneManagement.LoadScene("Game");
-        audioManager.ButtonPress();
+        if (!ButtonPressed)
+        {
+            PlayerPrefs.SetString("Difficulty", "Hard");
+            SceneManagement.LoadScene("Game");
+            audioManager.ButtonPress();
+            ButtonPressed = true;
+        }
     }
 }
