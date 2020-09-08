@@ -5,8 +5,6 @@ using UnityEngine;
 public class Face : MonoBehaviour
 {
     //Params
-    [SerializeField] Sprite RightFace;
-    [SerializeField] Sprite LeftFace;
     [SerializeField] float HitEffectDuration;
 
     //Declare Vars
@@ -31,19 +29,6 @@ public class Face : MonoBehaviour
         if (Time.time > HitEffectDuration + TimeColorChanged)
         {
             sprite.color = Color.white;
-        }
-    }
-
-    public void flipFace(float x)
-    {
-        //Checks Which Direction Player Is Going Then Changes The Face Sprite
-        if (x > 0)
-        {
-            sprite.sprite = RightFace;
-        }
-        else if (x < 0)
-        {
-            sprite.sprite = LeftFace;
         }
     }
 

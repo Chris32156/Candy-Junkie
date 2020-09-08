@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     //Cached Refrences
     Rigidbody2D rb;
     SpriteRenderer sprite;
-    //CapsuleCollider2D BodyColider;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
         //Get Cached Values Of Components
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-        //BodyColider = body.GetComponent<CapsuleCollider2D>();
+        animator = GetComponent<Animator>();
 
         //Set Object Vars Values
         face = FindObjectOfType<Face>();
@@ -96,11 +96,6 @@ public class Player : MonoBehaviour
                 {
                     eatCandy();
                 }
-                else
-                {
-                    //Play Sound To Show Player Has No Candy
-                    //TODO
-                }
             }
 
             //Checks If Size Is Too Big
@@ -108,6 +103,9 @@ public class Player : MonoBehaviour
             {
                 //Set Death Message
                 //TODO
+
+                //Animation
+                animator.SetTrigger("CandyDied");
 
                 //Play Sound Effect
                 audio.ExplosionDeath();
@@ -220,5 +218,8 @@ public class Player : MonoBehaviour
     {
         //Update Vars
         alive = false;
+
+        //Death Animation
+        animator.SetTrigger("Died");
     }
 }
