@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
                 //TODO
 
                 //Animation
-                animator.SetTrigger("CandyDied");
+                animator.SetTrigger("Died");
 
                 //Play Sound Effect
                 audio.ExplosionDeath();
