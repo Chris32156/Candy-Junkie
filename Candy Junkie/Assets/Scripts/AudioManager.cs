@@ -30,6 +30,22 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            //Toggles Muted 0 means Unmuted, 1 means muted
+            if (PlayerPrefs.GetInt("Muted", 0) == 0)
+            {
+                PlayerPrefs.SetInt("Muted", 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("Muted", 0);
+            }
+        }
+    }
+
     private void Start()
     {
         audio = GetComponent<AudioSource>();
