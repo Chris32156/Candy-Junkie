@@ -793,6 +793,11 @@ PrefabInstance:
       propertyPath: Zombie
       value: 
       objectReference: {fileID: 76333762}
+    - target: {fileID: 5591916224912736449, guid: 8fe18a035c8acba4fbbbb27990bae470,
+        type: 3}
+      propertyPath: ScorePerSecond
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5591916224912736450, guid: 8fe18a035c8acba4fbbbb27990bae470,
         type: 3}
       propertyPath: m_LocalPosition.x

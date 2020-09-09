@@ -32,6 +32,7 @@ public class Game : MonoBehaviour
     int Candies;
     int Lives;
     int score = 0;
+    int scoreUpTime;
     Player player;
     SceneManagement SceneManager;
     AudioManager audio;
@@ -64,6 +65,7 @@ public class Game : MonoBehaviour
         timeCandySpawned = Time.time;
         timeZombieSpawned = Time.time;
         timeHeartSpawned = Time.time;
+        scoreUpTime = Time.time;
 
         //Spawn Starting Amounts
 
@@ -136,9 +138,11 @@ public class Game : MonoBehaviour
         }
 
         //Update Score Every Second
-        if (Time.time % 1 == 0)
+        if (Time.time >= scoreUpTime)
         {
             UpdateScore(ScorePerSecond);
+
+            scoreUpTime++;
         }
 
     }
