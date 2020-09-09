@@ -18,8 +18,12 @@ public class Game : MonoBehaviour
     [SerializeField] float MaxTimeUntilZombieSpawn;
     [SerializeField] int fps = 60;
     [SerializeField] int MaxHealth = 99;
+    [SerializeField] int ScorePerCandy;
+    [SerializeField] int ScorePerHeart;
+    [SerializeField] int ScorePerSecond;
     [SerializeField] TextMeshProUGUI CandiesText;
     [SerializeField] TextMeshProUGUI LivesText;
+    [SerializeField] TextMeshProUGUI ScoreText;
     [SerializeField] GameObject Candy;
     [SerializeField] GameObject Zombie;
     [SerializeField] GameObject Heart;
@@ -27,6 +31,7 @@ public class Game : MonoBehaviour
     //Declare Vars
     int Candies;
     int Lives;
+    int score = 0;
     Player player;
     SceneManagement SceneManager;
     AudioManager audio;
@@ -130,6 +135,12 @@ public class Game : MonoBehaviour
             timeUntilNextZombieSpawn = Random.Range(MinTimeUntilZombieSpawn, MaxTimeUntilZombieSpawn);   
         }
 
+        //Update Score Every Second
+        if (Time.time % 1 == 0)
+        {
+            UpdateScore(ScorePerSecond);
+        }
+
     }
 
     //Called When Player Gets A Candy
@@ -140,6 +151,9 @@ public class Game : MonoBehaviour
 
         //Caps Candies
         Mathf.Clamp(Candies, 0, 99);
+
+        //Update Score
+        UpdateScore(ScorePerCandy);
 
         //Update UI
         CandiesText.SetText("X " + Candies.ToString());
@@ -153,6 +167,9 @@ public class Game : MonoBehaviour
 
         //Caps Lives
         Lives = Mathf.Clamp(Lives, 0, MaxHealth);
+
+        //Update Score
+        UpdateScore(ScorePerHeart);
 
         //Update UI
         LivesText.SetText("X " + Lives.ToString());
@@ -227,5 +244,15 @@ public class Game : MonoBehaviour
     public int GetLives()
     {
         return Lives;
+    }
+
+    void UpdateScore(int x)
+    {
+        //Update Vars
+        score += x;
+        PlayerPrefs.SetInt("Score", score);
+
+        //Update UI
+        ScoreText.SetText(score.ToString());
     }
 }

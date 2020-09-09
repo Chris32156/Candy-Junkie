@@ -55,8 +55,12 @@ MonoBehaviour:
   MaxTimeUntilZombieSpawn: 20
   fps: 60
   MaxHealth: 99
+  ScorePerCandy: 50
+  ScorePerHeart: 250
+  ScorePerSecond: 5
   CandiesText: {fileID: 0}
   LivesText: {fileID: 0}
+  ScoreText: {fileID: 0}
   Candy: {fileID: 5679133251959865532, guid: 9ba74ccfea39b2348bb30a349cdbd25c, type: 3}
   Zombie: {fileID: 0}
   Heart: {fileID: 1346022330501707903, guid: f51218f34f6050841b5f17c6c6a2b1ff, type: 3}

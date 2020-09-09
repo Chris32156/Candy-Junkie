@@ -299,6 +299,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &695918614 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 695918614, guid: 2123038db27fc324781132e4e740671e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1014276468393218070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1184776771
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,10 +575,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1248997103, guid: 148f7c46a4be1d74091dbf389abb266d, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 272690826009832742, guid: 148f7c46a4be1d74091dbf389abb266d,
         type: 3}
       propertyPath: m_Name
@@ -777,6 +785,11 @@ PrefabInstance:
       objectReference: {fileID: 2042030416}
     - target: {fileID: 5591916224912736449, guid: 8fe18a035c8acba4fbbbb27990bae470,
         type: 3}
+      propertyPath: ScoreText
+      value: 
+      objectReference: {fileID: 695918614}
+    - target: {fileID: 5591916224912736449, guid: 8fe18a035c8acba4fbbbb27990bae470,
+        type: 3}
       propertyPath: Zombie
       value: 
       objectReference: {fileID: 76333762}
@@ -844,46 +857,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1417943546, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1417943546, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1417943546, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36, type: 3}
-      propertyPath: lengthInSec
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1417943546, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1417943546, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1417943546, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.8679245
-      objectReference: {fileID: 0}
-    - target: {fileID: 1417943546, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1417943546, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1417943546, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1417943546, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 7466115919690132333, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36,
         type: 3}
       propertyPath: m_Name
@@ -944,32 +917,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1417943545, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36, type: 3}
-    - {fileID: 1417943546, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36, type: 3}
---- !u!1 &7466115920832578269 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7466115919690132333, guid: 93e6b61cd9c0eb84cb4259a4cb0d8b36,
-    type: 3}
-  m_PrefabInstance: {fileID: 7466115920832578268}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &7466115920832578270
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7466115920832578269}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d944c05337dd0c0479f5636d5b733a12, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
