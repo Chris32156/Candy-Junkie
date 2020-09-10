@@ -125,11 +125,6 @@ public class Zombie : MonoBehaviour
             {
                 AudioSource.PlayClipAtPoint(HitSound, Camera.main.transform.position);
             }
-            //Plays Game Over Sound Effect
-            else
-            {
-                //TODO
-            }
             game.PlayerGotHit();
         }
     }

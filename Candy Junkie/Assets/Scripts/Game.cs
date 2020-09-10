@@ -193,6 +193,9 @@ public class Game : MonoBehaviour
         //Game Over
         if (Lives <= 0)
         {
+            //Set Cause Of Death
+            PlayerPrefs.SetString("Death", "Zombie");
+
             //Sound Effect
             audio.GameOver();
 
@@ -237,6 +240,9 @@ public class Game : MonoBehaviour
     {
         //Death Effects
         //TODO
+
+        //Save Score
+        PlayerPrefs.SetInt("Score", score);
 
         //Call Player Function 
         player.gameOver();

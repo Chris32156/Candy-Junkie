@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
             if (body.localScale.x > MaxSize)
             {
                 //Set Death Message
-                //TODO
+                PlayerPrefs.SetString("Death", "Candy");
 
                 //Animation
                 animator.SetTrigger("Died");
