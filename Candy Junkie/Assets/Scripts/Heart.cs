@@ -28,7 +28,10 @@ public class Heart : MonoBehaviour
             hasBeenCollected = true;
 
             //Plays Sound Effect
-            AudioSource.PlayClipAtPoint(HeartPickup, Camera.main.transform.position);
+            if (PlayerPrefs.GetInt("Muted", 0) == 0)
+            {
+                AudioSource.PlayClipAtPoint(HeartPickup, Camera.main.transform.position);
+            }
 
             //Call Game Function For When Player Gets A Candy 
             game.GotHeart();

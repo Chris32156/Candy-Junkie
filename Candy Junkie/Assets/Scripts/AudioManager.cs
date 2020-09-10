@@ -11,6 +11,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip CandyEatingSound;
     [SerializeField] AudioClip NoCandySound;
 
+    //DeclareVars
+    MuteButton muteButton;
+
     //Cached Refrences
     AudioSource audio;
 
@@ -30,19 +33,12 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            //Toggles Muted 0 means Unmuted, 1 means muted
-            if (PlayerPrefs.GetInt("Muted", 0) == 0)
-            {
-                PlayerPrefs.SetInt("Muted", 1);
-            }
-            else
-            {
-                PlayerPrefs.SetInt("Muted", 0);
-            }
+            ToggleMute();
         }
     }
 
@@ -51,28 +47,67 @@ public class AudioManager : MonoBehaviour
         audio = GetComponent<AudioSource>();
     }
 
+    public void ToggleMute()
+    {
+        ButtonPress();
+
+        //Toggles Muted 0 means Unmuted, 1 means muted
+        if (PlayerPrefs.GetInt("Muted", 0) == 0)
+        {
+            PlayerPrefs.SetInt("Muted", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Muted", 0);
+        }
+
+        ButtonPress();
+
+        //Update Icon
+        if (GameObject.Find("Mute Button") != null)
+        {
+            muteButton = FindObjectOfType<MuteButton>();
+            muteButton.UpdateIcon();
+        }
+    }
+
     public void ButtonPress()
     {
-        audio.PlayOneShot(ButtonSound);
+        if (PlayerPrefs.GetInt("Muted", 0) == 0)
+        {
+            audio.PlayOneShot(ButtonSound);
+        }
     }
 
     public void ExplosionDeath()
     {
-        audio.PlayOneShot(ExplosionSound);
+        if (PlayerPrefs.GetInt("Muted", 0) == 0)
+        {
+            audio.PlayOneShot(ExplosionSound);
+        }
     }
 
     public void NoCandy()
     {
-        audio.PlayOneShot(NoCandySound);
+        if (PlayerPrefs.GetInt("Muted", 0) == 0)
+        {
+            audio.PlayOneShot(NoCandySound);
+        }
     }
 
     public void EatCandy()
     {
-        audio.PlayOneShot(CandyEatingSound);
+        if (PlayerPrefs.GetInt("Muted", 0) == 0)
+        {
+            audio.PlayOneShot(CandyEatingSound);
+        }
     }
 
     public void GameOver()
     {
-        audio.PlayOneShot(GameOverSound);
+        if (PlayerPrefs.GetInt("Muted", 0) == 0)
+        {
+            audio.PlayOneShot(GameOverSound);
+        }
     }
 }

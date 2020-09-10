@@ -27,7 +27,10 @@ public class Candy : MonoBehaviour
             hasBeenCollected = true;
 
             //Plays Sound Effect
-            AudioSource.PlayClipAtPoint(PickupSound, Camera.main.transform.position);
+            if (PlayerPrefs.GetInt("Muted", 0) == 0)
+            {
+                AudioSource.PlayClipAtPoint(PickupSound, Camera.main.transform.position);
+            }
 
             //Call Game Function For When Player Gets A Candy 
             game.GotCandy();

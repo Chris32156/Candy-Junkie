@@ -121,7 +121,7 @@ public class Zombie : MonoBehaviour
         if (player.CanBeHit() && IsCollidingWithPlayer)
         {
             //Plays Sound Effect If Player Has > 1 life
-            if (game.GetLives() > 1)
+            if (game.GetLives() > 1 && PlayerPrefs.GetInt("Muted", 0) == 0)
             {
                 AudioSource.PlayClipAtPoint(HitSound, Camera.main.transform.position);
             }
