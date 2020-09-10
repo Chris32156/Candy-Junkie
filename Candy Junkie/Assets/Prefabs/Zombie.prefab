@@ -71,7 +71,7 @@ MonoBehaviour:
   XSpawnPos: 9.1
   StartingSpeedMin: 2
   StartingSpeedMax: 2.5
-  hardStartingSpeedIncrease: 3
+  hardStartingSpeedIncrease: 1
   YSpawnPos: 6
   SpeedIncreasePerMinuteMin: 0.5
   SpeedIncreasePerMinuteMax: 1

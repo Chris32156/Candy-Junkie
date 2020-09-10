@@ -98,6 +98,7 @@ public class Zombie : MonoBehaviour
         {
             aiPath.maxSpeed += hardStartingSpeedIncrease;
             speedIncrease += HardSpeedIncrease;
+            MaxSpeed += hardStartingSpeedIncrease;
         }
     }
 

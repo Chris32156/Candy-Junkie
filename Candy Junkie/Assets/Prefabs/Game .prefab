@@ -57,7 +57,7 @@ MonoBehaviour:
   MaxHealth: 99
   ScorePerCandy: 50
   ScorePerHeart: 250
-  ScorePerSecond: 5
+  ScorePerSecond: 2
   CandiesText: {fileID: 0}
   LivesText: {fileID: 0}
   ScoreText: {fileID: 0}
